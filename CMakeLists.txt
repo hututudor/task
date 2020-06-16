@@ -3,4 +3,4 @@ project(task C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(task src/main.c)
+add_executable(task src/main.c src/commands.c src/commands.h)
