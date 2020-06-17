@@ -13,6 +13,7 @@ displayHelp(void) {
   printf("Commands: \n");
   printf("  - init(-i): Creates the tasks file in the current directory\n");
   printf("  - run(-r) <name>: Runs the command from the tasks file\n");
+  printf("  - list(-l): List the available commands from the tasks file\n");
   printf("  - help(-h): Prints help\n");
 }
 
@@ -44,6 +45,18 @@ runCommand(char *command) {
 static void
 init() {
   system("touch tasks");
+}
+
+static void
+list() {
+  char *fileData = loadFile("tasks");
+
+  if (!fileData) {
+    printf("%sTasks file does not exists%s\n", COLOR_RED, COLOR_RESET);
+    return;
+  }
+
+  printf("%sAvailable commands:%s \n%s\n", COLOR_YELLOW, COLOR_RESET, fileData);
 }
 
 void
@@ -82,6 +95,15 @@ parseCommand(int argc, char *argv[]) {
       strcmp(argv[1], "i") == 0
     ) {
     init();
+    return;
+  }
+
+  if (strcmp(argv[1], "list") == 0 ||
+      strcmp(argv[1], "--list") == 0 ||
+      strcmp(argv[1], "-l") == 0 ||
+      strcmp(argv[1], "l") == 0
+    ) {
+    list();
     return;
   }
 
