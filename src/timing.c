@@ -1,6 +1,4 @@
 #include <time.h>
-#include <stdio.h>
-#include <sys/time.h>
 #include "timing.h"
 
 time_t startTime, endTime;
