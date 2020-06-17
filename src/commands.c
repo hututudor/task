@@ -15,6 +15,7 @@ displayHelp(void) {
   printf("  - run(-r) <name>: Runs the command from the tasks file\n");
   printf("  - list(-l): List the available commands from the tasks file\n");
   printf("  - help(-h): Prints help\n");
+  printf("\nMade by Hutu Tudor\n");
 }
 
 static void
