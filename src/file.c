@@ -3,7 +3,8 @@
 #include <string.h>
 #include "file.h"
 
-char *loadFile(char *fileName) {
+char *
+loadFile(char *fileName) {
   FILE *file = fopen(fileName, "r");
 
   if (!file) {
@@ -22,7 +23,8 @@ char *loadFile(char *fileName) {
   return data;
 }
 
-char *findCommandInFileData(char *fileData, char *command) {
+char *
+findCommandInFileData(char *fileData, char *command) {
   char *line;
   line = strtok(fileData, "\n");
 
